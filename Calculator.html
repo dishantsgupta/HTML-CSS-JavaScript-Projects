@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: rgb(34,193,195);
+            background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+        }
+        input{
+            font-family: 'Inconsolata', monospace;
+        }
+        .box{
+            width: 350px;
+            height: 80vh;
+            margin: 70px 500px;
+            padding: 10px 10px;
+            border-radius: 10px;
+            box-shadow: 1px 4px 5px 5px rgba(1,0,1,0.6);
+            background: linear-gradient( #eb3349 , #f45c43);
+        }
+        #forms{
+            display: flex;
+            flex-direction: column;
+        }
+        .text input{
+            width: 306px;
+            margin: 12px 10px;
+            padding: 2px 4px;
+            align-items: center;
+            height: 8vh;
+            font-size: 25px;
+            font-weight: 700;
+            border: 2px solid black;
+            border-radius: 7px;
+        }
+        .btn1 , .btn2 , .btn3 , .btn4 , .btn5 , .btn6{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .btn1 input, .btn2 input, .btn3 input, .btn4 input, .btn5 input{
+            width: 70px;
+            height: 6vh;
+            font-size: 25px;
+            font-weight: 600;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 100%;
+            margin: 15px 0;
+        }
+        .btn6 input{
+            width: 200px;
+            height: 6vh;
+            font-size: 30px;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 100%;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <form name="form" id="forms">
+            <div class="text">
+                <input type="text" required placeholder="Enter Here" name="textbox">
+            </div>
+            <div class="btn1">
+            <input type="button" value="1" id="one" onclick="form.textbox.value+=1">
+            <input type="button" value="2" id="two" onclick="form.textbox.value+=2">
+            <input type="button" value="3" id="three" onclick="form.textbox.value+=3">
+            </div>
+            <div class="btn2">
+                <input type="button" value="4" id="four" onclick="form.textbox.value+=4">
+                <input type="button" value="5" id="five" onclick="form.textbox.value+=5">
+                <input type="button" value="6" id="six" onclick="form.textbox.value+=6">
+            </div>
+            <div class="btn3">
+                <input type="button" value="7" id="seven" onclick="form.textbox.value+=7">
+                <input type="button" value="8" id="eight" onclick="form.textbox.value+=8">
+                <input type="button" value="9" id="nine" onclick="form.textbox.value+=9">
+            </div>
+            <div class="btn4">
+                <input type="button" value="+" id="add" onclick="form.textbox.value+= '+'">
+                <input type="button" value="0" id="zero" onclick="form.textbox.value+=0">
+                <input type="button" value="-" id="sub" onclick="form.textbox.value+= '-'">
+            </div>
+            <div class="btn5">
+                <input type="button" value="*" id="mul" onclick="form.textbox.value+= '*'">
+                <input type="button" value="/" id="div" onclick="form.textbox.value+= '/'">
+                <input type="button" value="C" id="cls" onclick="form.textbox.value = ''">
+            </div>
+            <div class="btn6">
+                <input type="button" value="=" id="equal" onclick="form.textbox.value = eval(form.textbox.value)">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
