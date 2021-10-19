@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            background-color: #c72f18;
+        }
+        .logo{
+            text-align: center;
+            font-size: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            word-spacing: 2px;
+            font-weight: 700;
+            margin-top: 30px;
+        }
+        .box{
+            width: 600px;
+            height: 60vh;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            margin-left:380px;
+            background: #adab28;
+            border-radius: 20px;
+            border: 2px solid black;
+        }
+        .secbox{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 600px;
+        }
+        .main{
+            text-align: left;
+            margin-top: 90px;
+            margin-left: 20px;
+            text-transform: capitalize;
+            color: #405ee3;
+            text-shadow: 2px 1px 2px black;
+            letter-spacing: 3px;
+            font-weight: 400;
+            font-size: 20px;
+        }
+        .subject{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-right: 30px;
+            align-items: center;
+        }
+        .subject input{
+            width: 280px;
+            height: 5vh;
+            margin: 10px 0;
+            font-size: 20px;
+            padding: 2px;
+        }
+        .txt{
+            width: 500px;
+            text-align: center;
+            letter-spacing: 1px;
+            font-size: 18px;
+        }
+        #btn{
+            width: 150px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <main class="logo">Student Grade Calculator</main>
+    <div class="box">
+        <div class="secbox">
+            <div class="main">
+                <h1 class="head">Student</h1>
+                <h1>grade</h1>
+                <h1>Calcy</h1>
+            </div>
+            <div class="subject">
+                <input type="text" placeholder="Physics" name="phy" id="phy" required>
+                <input type="text" placeholder="Chemistry" name="chem" id="chem" required>
+                <input type="text" placeholder="Maths" name="math" id="math" required>
+                <input type="text" placeholder="Python" name="python" id="python" required>
+                <input type="button" name="btn" id="btn" value="Show Percentage" onclick="percent()">
+            </div>
+        </div>
+        <div class="txt">
+            <p id="textdata"> </p>
+        </div>
+    </div>
+
+    <script>
+        const percent = () =>{
+            let phys = document.getElementById("phy").value;
+            let chemi = document.getElementById("chem").value;
+            let maths = document.getElementById("math").value;
+            let pyt = document.getElementById("python").value;
+            let grades = '';
+            let passfail = "";
+            if((parseFloat(phys)<=100 && parseFloat(phys)>=0) && (parseFloat(chemi)<=100 && parseFloat(chemi)>=0) && (parseFloat(maths)<=100 && parseFloat(maths)>=0) && (parseFloat(pyt)<=100 && parseFloat(pyt)>=0)){
+                let total = parseFloat(phys)+parseFloat(chemi)+parseFloat(maths)+parseFloat(pyt);
+                let perc = (total * 100)/400;
+                
+                if(perc <= 100 && perc >= 80){
+                    grades = 'A';
+                }
+                else if(perc < 80 && perc >=60){
+                    grades = 'B';
+                }
+                else if(perc < 60 && perc >= 45){
+                    grades = 'C';
+                }
+                else if(perc < 45 && perc >= 33){
+                    grades = 'D';
+                }
+                else if(perc >= 0 && perc < 33){
+                    grades = 'E';
+                }
+
+                if(perc >= 33){
+                    passfail = "pass"
+                }
+                else if(perc >= 0 && perc < 33){
+                    passfail = "fail"
+                }
+
+                document.getElementById("textdata").innerHTML = `Out of 400 your total is ${total} and percentage is ${perc}%. <br>Your grade is ${grades}. You are ${passfail}.`
+            }
+            else{
+                document.getElementById("textdata").innerHTML = `Please enter correct data.... <br>Enter marks between 0-100 each subject.`
+            }    
+        }
+    </script>
+</body>
+</html>
