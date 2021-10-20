@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Search Box</title>
+    <style>
+        body{
+            margin: 10px 20px;
+            text-align: left;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            letter-spacing: 2px;
+        } 
+        .inputbox input{
+            width: 900px;
+            height: 6vh;
+            margin: 15px;
+            padding: 5px;
+            font-weight: 700;
+            font-size: large;
+        }
+        table tr{
+            text-transform: capitalize;
+        }
+        table tr th{
+            font-size: larger;
+        }
+        h1{
+            letter-spacing: 7px;
+            word-spacing: 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <h1><center style="text-transform: uppercase;">Search Box</center></h1>
+    <div class="inputbox">
+        <input type="text" name="" placeholder="Search for names....." required id="ipbox" onkeyup="search()">
+    </div>
+    <table class="table" id="myTable">
+          <tr>
+            <th scope="col">NAME</th>
+            <th scope="col">COURSE</th>
+            <th scope="col">SKILL</th>
+          </tr>
+          <tr>
+            <td>Dishant</td>
+            <td>MCA</td>
+            <td>Web Devloper</td>
+          </tr>
+          <tr>
+            <td>Shubhi</td>
+            <td>BCA</td>
+            <td>Full Stack Developer</td>
+          </tr>
+          <tr>
+            <td>Anudeep</td>
+            <td>MSC</td>
+            <td>Front End Developer</td>
+          </tr>
+          <tr>
+            <td>Lekha</td>
+            <td>BSC</td>
+            <td>Network Engineer</td>
+          </tr>
+          <tr>
+            <td>Srijan</td>
+            <td>B.Com</td>
+            <td>Charater Accountant</td>
+          </tr>
+          <tr>
+            <td>Mohit</td>
+            <td>B.Tech</td>
+            <td>Web Developer</td>
+          </tr>
+          <tr>
+            <td>Neha</td>
+            <td>M.Com</td>
+            <td>Made</td>
+          </tr>
+          <tr>
+            <td>Vaishali</td>
+            <td>M.Tech</td>
+            <td>BackEnd Developer</td>
+          </tr>
+          <tr>
+            <td>Wasi Ur Rehman</td>
+            <td>MCA</td>
+            <td>Web Developer</td>
+          </tr>
+          <tr>
+            <td>Abhay</td>
+            <td>MBA</td>
+            <td>Business Man</td>
+          </tr>
+          <tr>
+            <td>Bharat</td>
+            <td>MCA</td>
+            <td>Applicatio Developer</td>
+          </tr>
+          <tr>
+            <td>Chandrakant</td>
+            <td>M.Tech</td>
+            <td>Front End Developer</td>
+          </tr>
+      </table>
+    
+    <script>
+        function search(){
+            let filter = document.getElementById("ipbox").value.toUpperCase();
+            let myTab = document.getElementById("myTable");
+            let tr = myTab.getElementsByTagName("tr");
+            for(let i=0;i<tr.length;i++){
+                let td = tr[i].getElementsByTagName("td")[0];
+                if(td){
+                    let textval = td.textContent || td.innerHTML;
+                    if(textval.toUpperCase().indexOf(filter) > -1){
+                        tr[i].style.display = "";
+                    }
+                    else{
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+  </body>
+</html>
